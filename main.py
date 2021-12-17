@@ -17,20 +17,26 @@ files_xlsx
 
 df = pd.DataFrame()
 
-#Burada tüm veriler birleşecek :D
+# all data will be MERGED to one
 
 for f in files_xlsx:
+
     data = pd.read_excel(f)
     data.columns=[column.replace("Do we have a stadium?", "is_stadium_exist") for column in data.columns]
 
     df = df.append(data)
+    df['Team'] = df['Team'].map(lambda x: x.lstrip("0x"))
+    df['Team'] = df['Team'].map(lambda x: x.zfill(8))
+ 
     df.drop(df.columns[4:], axis=1, inplace=True)
 
-    df['is_stadium_exist'] = df['is_stadium_exist'].str.replace('+',"True", regex=True)
-    df=df.fillna("False")
+    # df['is_stadium_exist'] = df['Team'].apply(lambda uid: os.path.isdir(f'D:\\FIFA Manager 14\\data\\stadium\\FIFA\\{uid}')).map({False: False, True: True})
+    df['is_stadium_exist'] = df['Team'].apply(lambda uid: True if os.path.isdir(f'D:\\FIFA Manager 14\\data\\stadium\\FIFA\\{uid}') else False)
 
-league = input("league?")
-dg=df.loc[df['League'] == league]
-print(dg)
+    df.to_excel("Teams.xlsx")
 
-# df append, df drop'tan sonra geldiği için en son dosyadan sütunlar eksilmedi. Sıra önemli. Önce organizasyon.
+# league = input("league?")
+# dg=df.loc[df['League'] == league]
+# print(dg)
+
+# df.append shall come after df.drop
