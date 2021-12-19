@@ -1,4 +1,4 @@
-# First I want to reach all files at directory "D:\FIFA Manager Stadium Project\Team Spreadsheet Yeni\" so that I have all the data. I need to make sure I read ALL The excels
+# First I want to reach all files at directory "D:\FIFA Manager Stadium Project\Team Spreadsheet New\" so that I have all the data. I need to make sure I read ALL The excels
 # import necessary libraries
 
 import os
@@ -6,13 +6,15 @@ import pandas as pd
 import numpy as np
 
 # List of files in a directory
-# print(glob.glob("D:\FIFA Manager Stadium Project\Team Spreadsheet Yeni\*.xlsx"))
+# print(glob.glob("D:\FIFA Manager Stadium Project\Team Spreadsheet New\*.xlsx"))
 
 path = os.getcwd()
 files = os.listdir(path)
 files
 
-files_xlsx = [f for f in files if f[-4:]=='xlsx']
+files_xlsx = [f for f in files if f[-4:]=='xlsx' and f!='fifam-uids.xlsx2 and f!='Teams.xlsx']
+# Includes all .xlsx files and excludes fifam-uids.xlsx which is the UID database and Teams.xlsx which is output in order to avoid duplication
+              
 files_xlsx
 
 df = pd.DataFrame()
