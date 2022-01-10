@@ -11,5 +11,9 @@ Update, 12/18/2021: I retrieve the team IDs list from .txt files. Made an automa
 
 Update, 12/19/2021: files_xlsx will now exclude 2 files.
 
+Update, 12/19/2021: order.py made my life easier! Instead of alphabetically going forward it chose me random files.
+
+Future, 1/10/2022: I want to check if team has stadium, or if league is complete or not, etc...
+
 Next: Type a search-find system, eg. when I type Manisa, I should be able to see all teams containing word "Manisa".
 Make an executable with a simple UI for the process.
