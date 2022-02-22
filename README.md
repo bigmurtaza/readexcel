@@ -13,6 +13,8 @@ Update, 12/19/2021: files_xlsx will now exclude 2 files.
 
 Update, 12/19/2021: order.py made my life easier! Instead of alphabetically going forward it chose me random files.
 
+Update, 2/22/2022: converted the headers in a .txt to a dataframe.
+
 Future, 1/10/2022: I want to check if team has stadium, or if league is complete or not, etc...
 
 Next: Type a search-find system, eg. when I type Manisa, I should be able to see all teams containing word "Manisa".
